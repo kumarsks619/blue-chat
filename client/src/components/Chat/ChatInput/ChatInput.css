@@ -1,0 +1,42 @@
+.chatInput {
+    display: flex;
+    border-top: 2px solid #d3d3d3;
+}
+
+.chatInput__input {
+    border: none;
+    border-radius: 0 0 0 4px;
+    padding: 3% 5%;
+    width: 80%;
+    font-size: 1.2em;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+}
+
+.chatInput__sendBtn {
+    color: #fff !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #2979ff;
+    padding: 20px;
+    display: inline-block;
+    border: none;
+    width: 20%;
+    border-radius: 0 0 4px 0;
+}
+
+
+@media (max-width: 1200px) {
+    .chatInput__input {
+        font-size: 1rem;
+        padding: 20px 10px;
+    }
+
+    .chatInput__sendBtn {
+        padding: 10px;
+    }
+}

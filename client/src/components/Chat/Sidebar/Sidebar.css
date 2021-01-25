@@ -1,0 +1,36 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    margin-left: 100px;
+    color: white;
+    height: 80%;
+    justify-content: space-between;
+    overflow: auto;
+}
+
+.sidebar__activeUsers {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50%;
+}
+
+.sidebar__activeUser {
+    display: flex;
+    align-items: center;
+}
+
+.sidebar__activeUsers img {
+    padding-left: 10px;
+}
+
+.sidebar h1 {
+    margin-bottom: 0px;
+}
+
+@media (max-width: 1200px) {
+    .sidebar {
+        width: 100%;
+        margin: 0;
+        padding: 50px;
+    }
+}

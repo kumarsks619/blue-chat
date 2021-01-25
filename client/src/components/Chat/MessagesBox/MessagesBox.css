@@ -1,0 +1,11 @@
+.messagesBox {
+    padding: 5% 0;
+    overflow: auto;
+    flex: auto;
+}
+
+.scrollToBottomBtn {
+    background: url('../../../icons/downArrow.png');
+    background-size: contain;
+    background-color: transparent !important;
+}
