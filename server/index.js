@@ -2,7 +2,6 @@ const express =  require('express')
 const socketIO = require('socket.io')
 const http = require('http')
 const cors = require('cors')
-const bodyParser = require('body-parser')
 
 const router = require('./routes/router')
 const { addUser, removeUser, getUser, getUsersInRoom } = require('./controllers/users')
@@ -20,15 +19,15 @@ const io = socketIO(server, {
     }
 })
 
-app.use(bodyParser.json({ extended: true }))
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(express.json({ extended: true }))
+app.use(express.urlencoded({ extended: true }))
 app.use(cors())
 app.use(router)
 
 
 // SOCKET.IO terminology:-
-// .on() - wait for the event to happen on the client-side and the handle it on server-side
-// .emit() - trigger a event from the server-side that is to be handled on the client-side
+// .on() - wait for an event to happen on one side(client/server) and handle it.
+// .emit() - trigger an event from one side(client/server) so that is to be handled on the other side(server/client).
 
 
 // WAITING for the CONNECTION event to happen --- doing all the stuffs to handle a new user in order
@@ -83,7 +82,7 @@ io.on('connection', (socket) => {
         callback()                         // triggering callback on the client-side
     })
 
-    // WAITING for the CONNECTION event to happen - disconnecting the user and doing all the clean stuffs
+    // WAITING for the DISCONNECT event to happen - disconnecting the user and doing all the clean stuffs
     socket.on('disconnect', () => {
         const removedUser = removeUser(socket.id)           // removing the user from the users array
 
